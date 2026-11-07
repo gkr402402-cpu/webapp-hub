@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>작은 앱 서랍</title>
+  <meta name="description" content="바이브 코딩으로 만든 작은 웹앱들을 모아 두는 허브입니다.">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'none'">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🗂️</text></svg>">
+  <link rel="stylesheet" href="assets/hub.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Vibe Coding Workshop</p>
+      <h1>작은 앱 서랍</h1>
+      <p class="lead">바이브 코딩으로 하나씩 만들어 가는 작은 웹앱들을 한곳에 모아 둡니다.<br>서랍을 열어 필요한 도구를 꺼내 쓰세요.</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="toolbar">
+      <label class="search">
+        <span class="sr-only">앱 검색</span>
+        <input id="q" type="search" placeholder="앱 이름이나 설명으로 찾기" autocomplete="off">
+      </label>
+      <div id="filters" class="filters" role="group" aria-label="상태 필터"></div>
+    </div>
+
+    <section id="grid" class="grid" aria-live="polite"></section>
+    <p id="empty" class="empty" hidden>조건에 맞는 앱이 없어요.</p>
+  </main>
+
+  <footer class="wrap foot">
+    <p>모든 앱은 정적 웹페이지로 GitHub Pages에서 제공됩니다. 새 앱은 <code>assets/apps.js</code>에 한 줄 추가하면 서랍에 나타납니다.</p>
+  </footer>
+
+  <script src="assets/apps.js"></script>
+  <script src="assets/hub.js"></script>
+</body>
+</html>

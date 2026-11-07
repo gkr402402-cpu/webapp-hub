@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>하루 일기장</title>
+  <meta name="description" content="오늘의 기분과 하루를 기록하는 간단한 일기장">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.gstatic.com https://apis.google.com; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://www.gstatic.com; frame-src https://diary-6d726.firebaseapp.com https://accounts.google.com https://apis.google.com; img-src 'self' data: https://*.googleusercontent.com; style-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📔</text></svg>">
+  <link rel="stylesheet" href="diary.css">
+</head>
+<body>
+  <header class="top">
+    <a class="back" href="../../">← 앱 서랍</a>
+    <h1>하루 일기장</h1>
+    <div class="account">
+      <span id="mode" class="mode">이 기기에 저장 중</span>
+      <button id="login" class="btn btn-google" type="button" hidden>Google로 로그인</button>
+      <button id="logout" class="btn btn-ghost" type="button" hidden>로그아웃</button>
+    </div>
+  </header>
+
+  <div id="banner" class="banner" hidden></div>
+
+  <main class="layout">
+    <section class="editor" aria-labelledby="editor-title">
+      <h2 id="editor-title" class="sr-only">일기 쓰기</h2>
+      <form id="form" autocomplete="off">
+        <div class="row">
+          <label class="field">
+            <span>날짜</span>
+            <input id="date" type="date" required>
+          </label>
+          <fieldset class="moods">
+            <legend>오늘의 기분</legend>
+            <div id="moods" class="mood-list"></div>
+          </fieldset>
+        </div>
+        <label class="field">
+          <span>제목</span>
+          <input id="title" type="text" maxlength="100" placeholder="오늘을 한 줄로 표현한다면?">
+        </label>
+        <label class="field grow">
+          <span>내용</span>
+          <textarea id="body" maxlength="10000" placeholder="오늘 있었던 일, 느낀 점, 고마웠던 일을 적어 보세요." required></textarea>
+        </label>
+        <div class="actions">
+          <span id="count" class="count">0 / 10000</span>
+          <button id="new" class="btn btn-ghost" type="button">새로 쓰기</button>
+          <button id="delete" class="btn btn-danger" type="button" hidden>삭제</button>
+          <button class="btn btn-primary" type="submit">저장</button>
+        </div>
+      </form>
+    </section>
+
+    <aside class="list" aria-labelledby="list-title">
+      <div class="list-head">
+        <h2 id="list-title">지난 일기 <span id="total" class="total"></span></h2>
+        <input id="search" type="search" placeholder="일기 검색" aria-label="일기 검색">
+      </div>
+      <div id="entries" class="entries"></div>
+      <p id="none" class="none" hidden>아직 쓴 일기가 없어요. 첫 일기를 남겨 보세요!</p>
+    </aside>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script type="module" src="diary.js"></script>
+</body>
+</html>

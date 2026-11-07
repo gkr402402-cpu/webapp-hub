@@ -1,0 +1,14 @@
+# 비밀 정보·로컬 설정은 절대 올리지 않습니다
+.env
+.env.*
+*.key
+*.pem
+service-account*.json
+*-adminsdk-*.json
+.firebase/
+.firebaserc
+firebase-debug.log
+*.log
+node_modules/
+.DS_Store
+Thumbs.db
